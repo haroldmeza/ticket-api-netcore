@@ -1,0 +1,23 @@
+﻿# Use root/example as user/password credentials
+
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ticketP
+      MYSQL_DATABASE: ticket
+      MYSQL_USER: ticket
+      MYSQL_PASSWORD: ticketP
+    ports:
+     - 3340:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
